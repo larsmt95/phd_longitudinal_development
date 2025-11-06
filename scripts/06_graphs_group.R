@@ -215,32 +215,33 @@ p <- p + geom_text(
 }
 
 # --- Variabler per gruppe ---
-vars_hurtighet <- c("cod", "yyir")
-vars_hurtighet_2 <- c("cod", "yyir", "totpwr", "relforce", "relpwr")
+vars_hurtighet <- c("cmj", "sprint30", "cod", "yyir")
+# vars_hurtighet_2 <- c("cod", "yyir", "totpwr", "relforce", "relpwr")
 vars_styrke <- c("totpwr", "relforce", "relpwr")
 vars_antropometri <- c("height", "bodymass")
 vars_skade <- c("relhams", "meanadd", "reladd", "meanabd", "relabd")
-vars_combined <- c("cmj", "sprint30", "totforce", "meanhams", "height", "bodymass")
+# vars_combined <- c("cmj", "sprint30", "totforce", "meanhams", "height", "bodymass")
 
 # # --- Y-akse titler ---
 y_titles_hurtighet <- c("CMJ (cm)", "CoD (s)", "YYIR1 (m)", "30 m sprint (s)")
-y_titles_hurtighet <- c("CoD (s)", "YYIR1 (m)", "Total power (W)", "Relative force (N/kg)", "Relative power (W/kg)")
+# y_titles_hurtighet <- c("CoD (s)", "YYIR1 (m)", "Total power (W)", "Relative force (N/kg)", "Relative power (W/kg)")
 y_titles_styrke <- c("Total force (N)", "Total power (W)", "Relative force (N/kg)", "Relative power (W/kg)")
 y_titles_antropometri <- c("Height (cm)", "Body mass (kg)")
 y_titles_skade <- c("Relative hamstring (N/kg)",
                     "Hip adduction (N)", "Relative hip ADD (Nm/kg)",
                     "Hip abduction (N)", "Relative hip ABD (Nm/kg)")
-y_titles_combined <- c("CMJ (cm)", "30 m sprint (s)",
-                       "Total force (N)", "Eccentric hamstring (N)",
-                       "Height (cm)", "Body mass (kg)")
-# 
+# y_titles_combined <- c("CMJ (cm)", "30 m sprint (s)",
+#                        "Total force (N)", "Eccentric hamstring (N)",
+#                        "Height (cm)", "Body mass (kg)")
+ 
+
 # # --- Bokstaver ---
 titles_hurtighet <- c("A", "B", "C", "D")
-titles_hurtighet <- c("A", "B", "C", "D", "E")
-# titles_styrke <- c("A", "B", "C", "D")
-# titles_antropometri <- c("A", "B")
+# titles_hurtighet <- c("A", "B", "C", "D", "E")
+titles_styrke <- c("A", "B", "C", "D")
+titles_antropometri <- c("A", "B")
 titles_skade <- c("A", "B", "C", "D", "E")
-# titles_combined <- c("A", "B", "C", "D", "E", "F")
+titles_combined <- c("A", "B", "C", "D", "E", "F")
 
 # --- Funksjon for å lage plots med lister ---
 create_plots <- function(vars, y_titles, plot_titles, ylim_list) {
@@ -282,18 +283,18 @@ library(gridGraphics)
 
 
 # --- Lag alle plots ---
-plots_hurtighet <- create_plots(vars_hurtighet_2, y_titles_hurtighet, titles_hurtighet, ylim_settings)
+plots_hurtighet <- create_plots(vars_hurtighet, y_titles_hurtighet, titles_hurtighet, ylim_settings)
 plots_styrke <- create_plots(vars_styrke, y_titles_styrke, titles_styrke, ylim_settings)
 plots_antropometri <- create_plots(vars_antropometri, y_titles_antropometri, titles_antropometri, ylim_settings)
 plots_skade <- create_plots(vars_skade, y_titles_skade, titles_skade, ylim_settings)
-plots_combined <- create_plots(vars_combined, y_titles_combined, titles_combined, ylim_settings)
+# plots_combined <- create_plots(vars_combined, y_titles_combined, titles_combined, ylim_settings)
 
 # --- Kombiner plots i grid ---
 hurtighet_grid <- plot_grid(plotlist = plots_hurtighet, nrow = 3, align = "v")
 styrke_grid <- plot_grid(plotlist = plots_styrke, nrow = 2, align = "v")
 antropometri_grid <- plot_grid(plotlist = plots_antropometri, nrow = 1, align = "v")
 skade_grid <- plot_grid(plotlist = plots_skade, nrow = 3, align = "v")
-combined_grid <- plot_grid(plotlist = plots_combined, nrow, 3, align = "v")
+# combined_grid <- plot_grid(plotlist = plots_combined, nrow, 3, align = "v")
 
 # --- Vis plots ---
 hurtighet_grid
