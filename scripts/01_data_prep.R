@@ -10,11 +10,7 @@ library(tidyr)
 library(emmeans)
 
 paper3_alle <- read_excel("~/Library/CloudStorage/OneDrive-nih.no/PhD/Artikler/Data/all_results.xlsx", sheet = "paper3")
-paper3_alle <- read_excel("C:/Users/larsmt/OneDrive - nih.no/PhD/Artikler/Data/all_results.xlsx", sheet = "paper3")
 paper3 <- read_excel("C:/Users/larsmt/OneDrive - nih.no/PhD/Artikler/Data/all_results.xlsx", sheet = "paper3")
-
-
-wtf <- read_excel("~/Library/CloudStorage/OneDrive-nih.no/PhD/Artikler/Data/all_results.xlsx", sheet = "paper3")
 
 paper3_korr2  %>% 
   select(id, FP2, group, time, sprint30, `30m1`, `30m2`, `30m3`, bodymass, relforce) %>% 
